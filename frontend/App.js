@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import CryptoDetail from './components/CryptoDetail';
 import PortfolioDetail from './components/PortfolioDetail';
+import ChatScreen from './components/ChatScreen';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,8 @@ function MainApp() {
           </Stack.Screen>
           <Stack.Screen name="CryptoDetail" component={CryptoDetail} />
           <Stack.Screen name="PortfolioDetail" component={PortfolioDetail} />
+          <Stack.Screen name="Search" component={Search} />
+          <Stack.Screen name="Chat" component={ChatScreen} />
         </>
       ) : (
         <>

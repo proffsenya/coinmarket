@@ -53,3 +53,33 @@ def add_crypto_to_portfolio(db: Session, portfolio_id: int, crypto: schemas.Port
     db.commit()
     db.refresh(db_crypto)
     return db_crypto
+
+
+# crud.py
+def delete_crypto_from_portfolio(
+    db: Session, 
+    portfolio_id: int, 
+    crypto_id: int, 
+    user_id: int
+):
+    # Проверка принадлежности портфеля
+    portfolio = db.query(models.Portfolio).filter(
+        models.Portfolio.id == portfolio_id,
+        models.Portfolio.user_id == user_id
+    ).first()
+    
+    if not portfolio:
+        raise HTTPException(status_code=404, detail="Портфель не найден")
+    
+    # Поиск и удаление криптовалюты
+    crypto = db.query(models.PortfolioCrypto).filter(
+        models.PortfolioCrypto.id == crypto_id,
+        models.PortfolioCrypto.portfolio_id == portfolio_id
+    ).first()
+    
+    if not crypto:
+        raise HTTPException(status_code=404, detail="Криптовалюта не найдена")
+    
+    db.delete(crypto)
+    db.commit()
+    return {"status": "success"}

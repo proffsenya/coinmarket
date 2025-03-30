@@ -109,3 +109,33 @@ def get_portfolio(
     
     return portfolio
 
+# main.py
+@app.delete("/portfolios/{portfolio_id}/crypto/{crypto_id}")
+def delete_crypto(
+    portfolio_id: int,
+    crypto_id: int,
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
+):
+    # Проверяем принадлежность портфеля
+    portfolio = db.query(models.Portfolio).filter(
+        models.Portfolio.id == portfolio_id,
+        models.Portfolio.user_id == current_user.id
+    ).first()
+    
+    if not portfolio:
+        raise HTTPException(status_code=404, detail="Портфель не найден")
+    
+    # Находим и удаляем криптовалюту
+    crypto = db.query(models.PortfolioCrypto).filter(
+        models.PortfolioCrypto.id == crypto_id,
+        models.PortfolioCrypto.portfolio_id == portfolio_id
+    ).first()
+    
+    if not crypto:
+        raise HTTPException(status_code=404, detail="Криптовалюта не найдена")
+    
+    db.delete(crypto)
+    db.commit()
+    return {"status": "success", "message": "Криптовалюта удалена"}
+

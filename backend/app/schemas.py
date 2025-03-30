@@ -44,6 +44,7 @@ class Portfolio(PortfolioBase):
 
 # schemas.py
 class PortfolioCrypto(BaseModel):
+    id: int 
     crypto_symbol: str
     quantity: float
     purchase_price: float

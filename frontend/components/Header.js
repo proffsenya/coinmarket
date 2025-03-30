@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../components/AuthContext';
+import ChatScreen from '../components/ChatScreen';
 
 const { width } = Dimensions.get('window');
 
@@ -32,6 +33,16 @@ export default function Header({ activeTab, onSearch }) {
         <Text style={styles.userEmail}>{user?.email}</Text>
         <Text style={styles.userNickname}>{user?.nickname}</Text>
       </View>
+
+      <TouchableOpacity
+        style={styles.chatButton}
+        onPress={() => {
+          setIsModalVisible(false);
+          navigation.navigate('Chat'); // Навигация на экран чата
+        }}
+      >
+        <Text style={styles.chatButtonText}>Чат с ИИ</Text>
+      </TouchableOpacity>
       
       <TouchableOpacity
         style={styles.logoutButton}
@@ -42,6 +53,8 @@ export default function Header({ activeTab, onSearch }) {
       >
         <Text style={styles.logoutButtonText}>Выйти</Text>
       </TouchableOpacity>
+
+      
     </View>
   );
 
@@ -114,17 +127,20 @@ export default function Header({ activeTab, onSearch }) {
           {user ? renderProfileContent() : renderAuthButtons()}
         </View>
       </Modal>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#F5F6FA',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
+    backgroundColor: '#F5F6FA',
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEE',
     paddingTop: 70,
   },
   headerTitle: {
@@ -197,6 +213,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: '100%',
     alignItems: 'center',
+    marginBottom: 12,
   },
   logoutButtonText: {
     color: 'white',
@@ -214,5 +231,29 @@ const styles = StyleSheet.create({
     color: '#273AA4',
     fontSize: 16,
     fontWeight: '600',
+  },
+  chatButton: {
+    backgroundColor: '#10B981',
+    paddingVertical: 14,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    width: '100%',
+    alignItems: 'center',
+  },
+  chatButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  chatModal: {
+    margin: 0,
+    justifyContent: 'flex-end',
+  },
+  chatModalContent: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    height: '90%',
+    padding: 16,
   },
 });

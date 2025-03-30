@@ -139,3 +139,20 @@ def delete_crypto(
     db.commit()
     return {"status": "success", "message": "Криптовалюта удалена"}
 
+
+from ollama import Client
+
+ollama = Client(host='http://localhost:11434')
+
+@app.post("/chat")
+async def chat_with_ai(message: dict):
+    try:
+        response = ollama.generate(
+            model='gemma3',
+            prompt=message['message'],
+            options={'temperature': 0.7}
+        )
+        return {"response": response['response']}
+    except Exception as e:
+        return {"error": str(e)}
+

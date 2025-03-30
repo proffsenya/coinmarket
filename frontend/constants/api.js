@@ -94,3 +94,16 @@ export const getPortfolioDetails = async (token, portfolioId) => {
     }}
   );
 };
+
+// api.js
+export const deleteCryptoFromPortfolio = async (token, portfolioId, cryptoId) => {
+  return axios.delete(
+    `${API_URL}/portfolios/${portfolioId}/crypto/${cryptoId}`,
+    { 
+      headers: { 
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+};

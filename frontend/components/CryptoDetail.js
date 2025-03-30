@@ -138,9 +138,9 @@ const CryptoDetail = ({ route }) => {
         yAxisLabel="$"
         yAxisSuffix=""
         chartConfig={{
-          backgroundColor: '#fff',
-          backgroundGradientFrom: '#fff',
-          backgroundGradientTo: '#fff',
+          backgroundColor: '#F5F6FA',
+          backgroundGradientFrom: '#F5F6FA',
+          backgroundGradientTo: '#F5F6FA',
           decimalPlaces: 2,
           color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -284,8 +284,8 @@ const CryptoDetail = ({ route }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 70,
-    backgroundColor: '#FCFDFF',
+    paddingTop: 70,
+    backgroundColor: '#F5F6FA',
     flex: 1,
     padding: 16,
   },
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#F5F6FA',
   },
   centeredContent: {
     marginTop: 'auto',

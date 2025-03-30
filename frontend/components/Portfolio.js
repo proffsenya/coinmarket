@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#F5F6FA',
   },
   center: {
     flex: 1,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   portfolioCard: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: 'white',
     padding: 16,
     borderRadius: 8,
     marginBottom: 12,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#F5F6FA',
   },
   input: {
     borderWidth: 1,

@@ -109,8 +109,8 @@ export default function Market() {
             withOuterLines={false}
             fromZero // Начинаем график с нуля
             chartConfig={{
-              backgroundGradientFrom: '#fff',
-              backgroundGradientTo: '#fff',
+              backgroundGradientFrom: '#FCFDFF',
+              backgroundGradientTo: '#FCFDFF',
               color: (opacity = 1) => chartColor, // Цвет графика в зависимости от изменения цены
               strokeWidth: 2,
               propsForLabels: {
@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FCFDFF',
     paddingHorizontal: 16,
     paddingTop: 16,
+    paddingBottom:90,
   },
   filterContainer: {
     flexDirection: 'row',
@@ -224,6 +225,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
+    backgroundColor: '#FCFDFF',
   },
   headerText: {
     fontSize: 14, // Уменьшили размер текста

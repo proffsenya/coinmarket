@@ -131,7 +131,7 @@ const Search = ({ searchQuery }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FCFDFF',
+    backgroundColor: '#F5F6FA',
     paddingTop: 70,
     flex: 1,
   },

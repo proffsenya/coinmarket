@@ -120,11 +120,11 @@ export default function Header({ activeTab, onSearch }) {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#F5F6FA',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'white',
     paddingTop: 70,
   },
   headerTitle: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: '#F5F6FA',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 24,
